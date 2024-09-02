@@ -6,11 +6,24 @@ from typing import Union
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls, StreamType
-from pytgcalls.exceptions import (
-    AlreadyJoinedError,
-    NoActiveGroupCall,
-    TelegramServerError,
-)
+
+# Importing necessary exceptions with fallback mechanisms
+try:
+    from pytgcalls.exceptions import (
+        AlreadyJoinedError,
+        NoActiveGroupCall,
+        TelegramServerError,
+    )
+except ImportError:
+    # Fallback classes if the exceptions are not found
+    class AlreadyJoinedError(Exception):
+        pass
+
+    class NoActiveGroupCall(Exception):
+        pass
+
+    class TelegramServerError(Exception):
+        pass
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQualityVideo
