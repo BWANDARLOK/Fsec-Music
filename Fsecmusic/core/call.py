@@ -327,7 +327,7 @@ class Call(PyTgCalls):
             raise AssistantErr(_["call_8"])
         except AlreadyJoinedError:
             raise AssistantErr(_["call_9"])
-        except TelegramServerError:
+        except InvalidMTProtoClient:
             raise AssistantErr(_["call_10"])
         except Exception as e:
             if "phone.CreateGroupCall" in str(e):
