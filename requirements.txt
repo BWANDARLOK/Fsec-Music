@@ -57,7 +57,7 @@ search_engine_parser
 speedtest-cli
 SpeechRecognition
 spotipy
-telegraph
+python-telegram-bot
 tgcrypto
 unidecode
 wget
