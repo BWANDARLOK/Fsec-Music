@@ -6,7 +6,7 @@ from typing import Union
 
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup
-from pytgcalls.exceptions import InvalidGroupCall, AlreadyJoinedError, InvalidMTProtoClient
+from pytgcalls.exceptions import NoActiveGroupCall, AlreadyJoinedError, InvalidMTProtoClient
 from pytgcalls import PyTgCalls
 from pytgcalls.types import MediaStream, AudioQuality, VideoQuality, Update
 from pytgcalls.types.stream import StreamAudioEnded
