@@ -12,7 +12,7 @@ from pytgcalls.types import MediaStream, AudioQuality, VideoQuality, Update
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
-from Fsecmusic import LOGGER, YouTube, app, YTB
+from Fsecmusic import LOGGER, YouTube, app
 from Fsecmusic.misc import db
 from Fsecmusic.utils.database import (
     add_active_chat,
@@ -321,14 +321,14 @@ class CallManager:
             except Exception as e:
                 LOGGER(__name__).error(f"Error downloading YouTube video: {e}")
                 try:
-                    file_path, direct = await YTB.download(
+                    file_path, direct = await YouTube.download(
                         videoid,
                         mystic,
                         videoid=True,
                         video=str(streamtype) == "video",
                     )
                 except Exception as yt_error:
-                    LOGGER(__name__).error(f"Error downloading video using YTB: {yt_error}")
+                    LOGGER(__name__).error(f"Error downloading video using YouTube: {yt_error}")
                     return await mystic.edit_text(
                         _["call_6"], disable_web_page_preview=True
                     )
